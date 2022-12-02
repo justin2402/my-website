@@ -1,18 +1,68 @@
 <template>
-  <div id="app">
-    <div class="outContainer">
-      <MoreInfoPage></MoreInfoPage>
+
+  <div>
+    <div id="app">
+
+      <div class="outContainer">
+
+
+        <div class="innerContainer">
+
+          <p @click="doThing" class="x-icon">x</p>
+
+          <div style="flex-direction: row; display: flex;">
+            <h6 class="name-title">Justin Hidalgo</h6>
+
+          </div>
+
+
+          <div v-show="!dialog" class="app-bar-thingy">
+            <h6 class="link-names"><a href="mailto:justinh8100@gmail.com">Email</a></h6>
+            <h6 class="link-names"><a href="https://github.com/justin2402">Github</a></h6>
+            <h6 class="link-names"><a href="https://www.linkedin.com/in/jhidalgo24/">Linkedin</a></h6>
+
+          </div>
+
+          <div v-show="dialog" class="app-bar-thingy">
+            <h6 class="link-names">It doesn't do anything hehe</h6>
+
+          </div>
+          <router-view></router-view>
+
+          </div>
+
+
+      </div>
     </div>
   </div>
+
 </template>
 
 <script>
 
 
-import MoreInfoPage from "@/components/MoreInfoPage";
+import router from "@/router";
+
 export default {
   name: 'App',
-  components: {MoreInfoPage}
+  router,
+  data() {
+    return {
+      imageAddress: "https://media.tenor.com/yRSnf6wABQ4AAAAj/pato-duck.gif",
+      dialog:false
+    }
+  },
+  methods:{
+    async doThing(){
+      this.dialog = true;
+      await this.sleepyThing(2000);
+      this.dialog = false;
+
+    },
+    sleepyThing(x){
+      return new Promise(resolve => setTimeout(resolve,x))
+    }
+  }
 }
 </script>
 
@@ -20,14 +70,21 @@ export default {
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+body {
+  background-color: skyblue;
 
+
+}
+.self-description-long:hover{
+  color: skyblue;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #000;
-  display: flex;
+  width: 100%;
 
 
 }
@@ -37,44 +94,64 @@ export default {
 }
 
 .outContainer {
-  justify-self: center;
-  align-content: center;
-  align-self: center;
   width: 100%;
   height: 100%;
+
 }
 
 .innerContainer {
+  z-index: 4;
   border-style: solid;
   text-align: center;
-  margin: 50px 7vw 0 7vw;
-  height: 70vh;
-  border-width: 1.5px;
-  box-shadow: 12px 10px #AAA;
+  margin: 5vh 7vw;
+  height: 85vh;
+  border-width: 2px;
+  border-color: #000;
+  box-shadow: 12px 10px #000000;
   border-radius: 1%;
   position: relative;
+  background-color: white;
+
 }
+
+
+.back-button {
+  position: absolute;
+  bottom: 25px;
+  right: 0;
+  left: 0;
+  margin-top: 25px;
+  font-style: italic;
+
+
+}
+
 
 .name-title {
   padding: 25px 10px;
-  text-shadow: 2px 2px #AAA;
-
+  text-shadow: 2px 2px #888;
+  background-color: #99EEFF;
+  width: 100%;
+  box-shadow: 0px 2px #CCC;
+  margin-top: 0;
 }
+
 
 .app-bar-thingy {
   display: flex;
   flex-direction: row;
-  border-width: 1px 0;
-  border-style: solid;
+
   width: 100%;
   margin: 0;
   padding: 20px 0;
   justify-content: center;
+  box-shadow: 0px 2px #999;
 }
 
 .link-names {
   margin: 0px 10px;
   text-shadow: 2px 3px #CCC;
+  font-style: italic;
 
 }
 
@@ -104,7 +181,8 @@ a:hover {
 
 a:active {
   text-decoration: none;
-  color: black;
+  color: skyblue;
+  text-shadow: 0 0 white;
 }
 
 .self-description {
@@ -113,9 +191,10 @@ a:active {
   text-align: center;
 }
 
-.empty-space{
-  margin:50px
+.empty-space {
+  margin: 50px
 }
+
 .self-description-long {
   font-weight: lighter;
   text-align: left;
@@ -123,16 +202,44 @@ a:active {
   font-size: 15px;
 }
 
-@media (min-width: 800px) {
+.x-icon {
+  background-color: #99EEFF;
+  box-shadow: 0px 2px #CCC;
+  padding-right: 6px;
+  padding-top: 2px;
+  color: blue;
+  text-shadow: 2px 3px #000;
+  text-align: right;
+}
+
+@media (min-width: 600px) and (min-height: 600px) {
+
+
   .link-names {
-    margin: 0px 10vw
+    margin: 0 25px
+  }
+
+
+  .outContainer {
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin-right: 200px;
+
   }
 
   .innerContainer {
-
-    margin: 50px 10vw 0 10vw;
+    border-style: solid;
+    text-align: center;
+    margin: 25vh 7vw;
+    height: 60vh;
+    border-radius: 1%;
+    margin-right: 30vw;
+    margin-left: 30vw;
 
   }
+
 
   .self-description-long {
     font-weight: lighter;
@@ -141,10 +248,7 @@ a:active {
 
   }
 
-  .name-title {
-    padding: 25px 10px;
-    text-shadow: 2px 2px #AAA;
-  }
+
 }
 
 </style>
