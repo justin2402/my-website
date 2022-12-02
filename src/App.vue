@@ -8,12 +8,10 @@
 
         <div class="innerContainer">
 
+          <div>
           <p @click="doThing" class="x-icon">x</p>
-
-          <div style="flex-direction: row; display: flex;">
-            <h6 class="name-title">Justin Hidalgo</h6>
-
           </div>
+            <h4 class="name-title">Justin Hidalgo </h4>
 
 
           <div v-show="!dialog" class="app-bar-thingy">
@@ -107,7 +105,7 @@ body {
   height: 85vh;
   border-width: 2px;
   border-color: #000;
-  box-shadow: 12px 10px #000000;
+  box-shadow: 12px 10px #679CB3;
   border-radius: 1%;
   position: relative;
   background-color: white;
@@ -129,23 +127,27 @@ body {
 
 .name-title {
   padding: 25px 10px;
-  text-shadow: 2px 2px #888;
+
   background-color: #99EEFF;
-  width: 100%;
-  box-shadow: 0px 2px #CCC;
+  color: #000;
+
+  box-shadow: 0px 2px #DDD;
   margin-top: 0;
+
+
 }
 
 
 .app-bar-thingy {
   display: flex;
   flex-direction: row;
+  border-color: black;
 
   width: 100%;
   margin: 0;
   padding: 20px 0;
   justify-content: center;
-  box-shadow: 0px 2px #999;
+  box-shadow: 0px 2px #CCC;
 }
 
 .link-names {
@@ -179,11 +181,7 @@ a:hover {
 }
 
 
-a:active {
-  text-decoration: none;
-  color: skyblue;
-  text-shadow: 0 0 white;
-}
+
 
 .self-description {
   padding: 20px;
@@ -204,12 +202,12 @@ a:active {
 
 .x-icon {
   background-color: #99EEFF;
-  box-shadow: 0px 2px #CCC;
   padding-right: 6px;
   padding-top: 2px;
-  color: blue;
-  text-shadow: 2px 3px #000;
+  color: red;
+  text-shadow: 2px 3px #679CB3;
   text-align: right;
+
 }
 
 @media (min-width: 600px) and (min-height: 600px) {
@@ -232,11 +230,8 @@ a:active {
   .innerContainer {
     border-style: solid;
     text-align: center;
-    margin: 25vh 7vw;
+    margin: 25vh 29vw 0 29vw;
     height: 60vh;
-    border-radius: 1%;
-    margin-right: 30vw;
-    margin-left: 30vw;
 
   }
 

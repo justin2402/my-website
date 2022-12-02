@@ -3,8 +3,7 @@
 
 
     <div>
-      <h5 class="self-description">Software Developer</h5>
-
+      <div style="margin-bottom: 30px"></div>
       <p class="self-description-long">Hello!!</p>
 
       <p class="self-description-long">My name is Justin Hidalgo. I am a Web and Software developer based in

@@ -1,9 +1,8 @@
 <template>
   <div >
 
-    <h5 class="self-description">Tools I know</h5>
 
-    <v-row>
+    <v-row style="margin:0">
       <v-col cols="6">
         <h4 style="padding-bottom: 15px">Tools</h4>
         <div style="margin: 5px" :key="n" v-for="(language, n) in tools">
@@ -33,7 +32,7 @@ export default {
   data(){
     return{
       languages:['Javascript','C#','Java','SQL','Python','Dart','HTML/CSS'],
-      tools:['React.js/Vue.js', 'React Native','Entity & Identity Framework','Xamarin', 'Spring','MYSQL/MSSQL', 'Firebase', ]
+      tools:['React.js/Native', 'Vue.js','Entity & Identity Framework','Xamarin', 'Spring','MYSQL/MSSQL', 'Firebase', ]
     }
   }
 }
